@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_params, only: %i[show  destroy]
+  before_action :set_params, only: %i[show edit update destroy]
 
   def index
     @lists = List.all
@@ -25,7 +25,17 @@ class ListsController < ApplicationController
     end
   end
 
+  def update
+    authorize @list
+    if @list.update(list_params)
+      redirect_to lists_path(@list), notice: "Your list has been edited!!"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
+  def edit
+  end
 
 
   def destroy

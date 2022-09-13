@@ -10,6 +10,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
                         <th scope="col">Position</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,10 +21,11 @@
                         <td><%= list.name %></td>
                         
                         <th scope="row"><%= count += 1 %></th>
-
-                        
+                        <td><%= link_to 'Edit', edit_list_path(list), class: 'btn btn-dark btn-sm mb-2' %>
+                         <%= button_to 'Delete', [list], method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: 'btn btn-danger btn-sm'  %>
+                         </td>
                     </tr>
-                    <%= button_to 'Delete', [list], method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: 'btn btn-dark btn-sm'  %>
+
                 <% end %>
                 </tbody>
             </table>
