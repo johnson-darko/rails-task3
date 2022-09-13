@@ -1,0 +1,11 @@
+
+<div class="card">
+  <div class="card-body">
+    <h2 class='card-title mb-4'>
+      <%= link_to 'Back', @list, class: 'btn btn-secondary mb-3' %>
+      <span>Editing item</span>
+    </h2>
+
+    <%= render 'form', list: @list %>
+  </div>
+</div>

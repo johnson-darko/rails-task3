@@ -26,7 +26,6 @@ class ListsController < ApplicationController
   end
 
   def update
-    authorize @list
     if @list.update(list_params)
       redirect_to lists_path(@list), notice: "Your list has been edited!!"
     else
