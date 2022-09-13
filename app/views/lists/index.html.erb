@@ -1,2 +1,42 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+
+    <div class="row">
+        <%#= render "links/links", :locals => {:active => 'tasks'} %>
+        
+        <div class="col-md-9 bg-white right-part">
+            <h3>Your Lists</h3>
+
+            <% flash.each do |type, msg| %>
+                <% if type == 'success' %>
+                    <div class="alert alert-success"><%= msg %></div>
+                <% elsif type == 'error' %>
+                    <div class="alert alert-danger"><%= msg %></div>
+                <% else %>
+                    <div class="alert alert-info"><%= msg %></div>
+                <% end %>
+            <% end %>
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Position</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% count = 0 %>
+                    <% @lists.order(created_at: :desc).each do |list| %>
+                        <tr>
+                            <th scope="row"><%= count += 1 %></th>
+                            <td><%= task.name %></td>
+
+                            
+                        </tr>
+                    <% end %>
+                    </tbody>
+                </table>
+                <%# pagy_nav(@pagy).html_safe %>
+            </div>
+        </div>
+    </div>
+
