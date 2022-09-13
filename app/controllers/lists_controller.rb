@@ -19,7 +19,7 @@ class ListsController < ApplicationController
     @list.user = current_user
     
     if @list.save!
-      redirect_to list_path(@list), notice: "Your list has been added!!"
+      redirect_to lists_path(@list), notice: "Your list has been added!!"
     else
       render :new, status: :unprocessable_entity
     end

@@ -14,14 +14,16 @@
                 </thead>
                 <tbody>
                 <% count = 0 %>
-                <% @lists.order(created_at: :desc).each do |list| %>
+                <% @lists.each do |list| %>
                     <tr>
-                        <th scope="row"><%= count += 1 %></th>
+                        <th scope="row"><%= list.user_id %></th>
                         <td><%= list.name %></td>
-                        <th scope="row"><%= count += 0 %></th>
+                        
+                        <th scope="row"><%= count += 1 %></th>
 
                         
                     </tr>
+                    <%= button_to 'Delete', [list], method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: 'btn btn-dark btn-sm'  %>
                 <% end %>
                 </tbody>
             </table>
