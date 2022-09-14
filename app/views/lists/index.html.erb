@@ -1,7 +1,7 @@
 
 <div class="row m-4">
     <div class=" bg-white right-part">
-      <%= link_to 'New list', new_list_path, class: 'btn btn-primary' %>
+      <%= link_to 'New item', new_list_path, class: 'btn btn-primary' %>
         <h3>Your Lists</h3>
         <div class="row">
             <table class="table">
@@ -25,11 +25,9 @@
                          <%= button_to 'Delete', [list], method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: 'btn btn-danger btn-sm'  %>
                          </td>
                     </tr>
-
                 <% end %>
                 </tbody>
             </table>
-            <%# pagy_nav(@pagy).html_safe %>
         </div>
     </div>
 </div>
