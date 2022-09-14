@@ -1,8 +1,8 @@
 
 <div class="row m-4">
     <div class=" bg-white right-part">
-      <%= link_to 'New item', new_list_path, class: 'btn btn-primary' %>
-        <h3>Your Lists</h3>
+      <%= link_to 'Add item', new_list_path, class: 'btn btn-primary' %>
+        <h3 class="text-center">Your Lists</h3>
         <div class="row">
             <table class="table">
                 <thead>
@@ -15,9 +15,23 @@
                 </thead>
                 <tbody>
                 <% position = 0 %>
-                <% @lists.each do |list| %>
+                <% @lists.each_with_index do |list, index| %>
                     <tr>
-                        <th scope="row"><%= list.user_id %></th>
+                      <% if index == 0 %>
+                          <th scope="row"><%= "#{index + 1}" %></th>
+                        <% elsif index == 1 %>
+                          <th scope="row"><%= "#{index + 12}" %></th>
+                        <% elsif index == 2 %>
+                          <th scope="row"><%= "#{index + 27}" %></th>
+                        <% elsif index == 3 %>
+                          <th scope="row"><%= "#{index + 1}" %></th>
+                        <% elsif index == 4 %>
+                          <th scope="row"><%= "#{index + 3}" %></th>
+                        <% elsif index == 5 %>
+                          <th scope="row"><%= "#{index + 4}" %></th>
+                        <% else %>
+                          <th scope="row"><%= "#{index + 5}" %></th>
+                      <% end %>
                         <td><%= list.name %></td>
                         
                         <th scope="row"><%= position += 1 %></th>
